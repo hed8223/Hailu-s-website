@@ -1,0 +1,2622 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>胡海璐 | 创意空间</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Lato:wght@300;400;500;700&family=Montserrat:wght@300;400;500;600&family=Pacifico&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-white: #f8fdf8;
+            --light-white: #ffffff;
+            --primary-green: #0a5c36;
+            --light-green: #4caf50;
+            --accent-green: #a5d6a7;
+            --primary-blue: #2a6b9c;
+            --light-blue: #64b5f6;
+            --accent-blue: #bbdefb;
+            --text-dark: #1a3c27;
+            --text-light: #5a7d6e;
+            --shadow-soft: 0 8px 32px rgba(10, 92, 54, 0.08);
+            --shadow-medium: 0 12px 48px rgba(10, 92, 54, 0.12);
+            --shadow-strong: 0 20px 60px rgba(10, 92, 54, 0.15);
+            --transition-smooth: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            --border-radius: 24px;
+            --border-radius-sm: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: 'Poppins', 'Lato', 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #f8fdf8 0%, #f0f9f0 50%, #e6f7ff 100%);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+        }
+
+        .language-transition {
+            opacity: 0.6;
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            will-change: opacity;
+        }
+
+        h1, h2, h3, p, a, label, input, textarea, .btn, .skill-name {
+            will-change: opacity;
+        }
+
+        .background-art {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--accent-green), transparent);
+            opacity: 0.08;
+            animation: float 20s infinite linear;
+            filter: blur(1px);
+        }
+
+        .circle:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .circle:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            top: 60%;
+            right: 10%;
+            background: radial-gradient(circle, var(--accent-blue), transparent);
+            animation-delay: -5s;
+        }
+
+        .circle:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            bottom: 10%;
+            left: 20%;
+            background: radial-gradient(circle, var(--light-green), transparent);
+            animation-delay: -10s;
+        }
+
+        .circle:nth-child(4) {
+            width: 250px;
+            height: 250px;
+            top: 20%;
+            right: 20%;
+            animation-delay: -15s;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 导航栏 */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 0;
+            background: rgba(248, 253, 248, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 1000;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition-smooth);
+            border-bottom: 1px solid rgba(76, 175, 80, 0.1);
+        }
+
+        nav.scrolled {
+            padding: 15px 0;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--primary-green);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition-smooth);
+            font-weight: 400;
+            letter-spacing: 2px;
+        }
+
+        .logo:hover {
+            transform: translateY(-2px);
+        }
+
+        .logo i {
+            color: var(--light-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            padding: 8px 0;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--light-green), var(--light-blue));
+            transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-green);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .lang-toggle {
+            background: linear-gradient(135deg, var(--light-green), var(--light-blue));
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--transition-smooth);
+            margin-left: 20px;
+        }
+
+        .lang-toggle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+        }
+
+        /* 头部区域 */
+        header {
+            padding: 160px 0 100px;
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .header-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .intro-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.8rem;
+            font-weight: 500;
+            margin-bottom: 24px;
+            color: var(--primary-green);
+            line-height: 1.15;
+        }
+
+        .intro-text h1 span {
+            background: linear-gradient(90deg, var(--primary-green), var(--primary-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            display: inline-block;
+        }
+
+        .intro-text h1 span::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--light-green), var(--light-blue));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .intro-text h1 span:hover::after {
+            opacity: 1;
+        }
+
+        .intro-text p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            max-width: 500px;
+            font-weight: 300;
+        }
+
+        .profile-image-container {
+            position: relative;
+            justify-self: center;
+            perspective: 1000px;
+        }
+
+        .profile-img {
+            width: 360px;
+            height: 360px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 12px solid white;
+            box-shadow: var(--shadow-strong);
+            transition: var(--transition-smooth);
+            position: relative;
+            z-index: 1;
+            filter: brightness(1.02) contrast(1.05);
+        }
+
+        .profile-img:hover {
+            transform: translateY(-15px) rotateY(10deg);
+            box-shadow: 0 25px 70px rgba(10, 92, 54, 0.25);
+        }
+
+        /* 主要内容区域 */
+        .section {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 500;
+            margin-bottom: 60px;
+            color: var(--primary-green);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--light-green), var(--light-blue), transparent);
+            border-radius: 3px;
+        }
+
+        /* 卡片式布局 */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .card {
+            background: var(--light-white);
+            border-radius: var(--border-radius);
+            padding: 45px 35px;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            border: 1px solid rgba(76, 175, 80, 0.08);
+        }
+
+        .card:hover {
+            transform: translateY(-20px) scale(1.02);
+            box-shadow: var(--shadow-strong);
+            border-color: rgba(76, 175, 80, 0.2);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--light-green), var(--light-blue));
+            z-index: 2;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(165, 214, 167, 0.03), rgba(187, 222, 251, 0.03));
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .card:hover::after {
+            opacity: 1;
+        }
+
+        .card-icon {
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            color: var(--primary-green);
+            transition: var(--transition-smooth);
+        }
+
+        .card:hover .card-icon {
+            transform: scale(1.1) translateY(-5px);
+            color: var(--primary-blue);
+        }
+
+        .card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 18px;
+            color: var(--primary-green);
+            font-weight: 600;
+            transition: var(--transition-smooth);
+        }
+
+        .card:hover h3 {
+            color: var(--primary-blue);
+        }
+
+        .card p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-weight: 300;
+            transition: var(--transition-smooth);
+        }
+
+        /* 技能进度条 */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 35px;
+        }
+
+        .skill-item {
+            background: var(--light-white);
+            border-radius: var(--border-radius-sm);
+            padding: 30px;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition-smooth);
+            border: 1px solid rgba(76, 175, 80, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-item:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-medium);
+            border-color: rgba(76, 175, 80, 0.2);
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .skill-name {
+            font-weight: 600;
+            color: var(--primary-green);
+            font-size: 1.1rem;
+        }
+
+        .skill-percentage {
+            color: var(--primary-blue);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .skill-bar {
+            height: 12px;
+            background-color: rgba(224, 242, 233, 0.6);
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+            z-index: 2;
+        }
+
+        .skill-bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.3) 50%, 
+                transparent 100%);
+            z-index: 1;
+            animation: shimmer 2s infinite linear;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--light-green), var(--light-blue));
+            border-radius: 6px;
+            width: 0;
+            transition: width 1.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* 联系表单 */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: var(--transition-smooth);
+            padding: 20px;
+            border-radius: var(--border-radius-sm);
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(76, 175, 80, 0.08);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-soft);
+            background: var(--light-white);
+            border-color: rgba(76, 175, 80, 0.2);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--light-green), var(--light-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+            transition: var(--transition-smooth);
+        }
+
+        .contact-item:hover .contact-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .contact-form {
+            background: var(--light-white);
+            border-radius: var(--border-radius);
+            padding: 50px;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition-smooth);
+            border: 1px solid rgba(76, 175, 80, 0.08);
+        }
+
+        .contact-form:hover {
+            box-shadow: var(--shadow-medium);
+            border-color: rgba(76, 175, 80, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--primary-green);
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 18px;
+            border: 1px solid #d0e7d9;
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+            transition: var(--transition-smooth);
+            background-color: rgba(249, 253, 249, 0.8);
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--light-green);
+            box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.1);
+            background-color: var(--light-white);
+            transform: translateY(-2px);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 18px 40px;
+            background: linear-gradient(90deg, var(--light-green), var(--light-blue));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            text-decoration: none;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--light-blue), var(--light-green));
+            transition: left 0.6s ease;
+            z-index: -1;
+        }
+
+        .btn:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(76, 175, 80, 0.3);
+        }
+
+        .btn:hover::before {
+            left: 0;
+        }
+
+        /* 页脚 */
+        footer {
+            background: linear-gradient(135deg, var(--primary-green), #1a3c27);
+            color: white;
+            padding: 80px 0 40px;
+            margin-top: 120px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .social-icon:hover {
+            background: var(--light-blue);
+            transform: translateY(-8px) scale(1.1);
+        }
+
+        .social-icon:hover::before {
+            left: 100%;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            font-weight: 300;
+        }
+
+        /* 动画 */
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(120deg); }
+            66% { transform: translate(-20px, 20px) rotate(240deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                       transform 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 隐藏大标题 */
+        .section-title {
+            display: none;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1100px) {
+            .header-content {
+                gap: 60px;
+            }
+            
+            .intro-text h1 {
+                font-size: 3.2rem;
+            }
+            
+            .profile-img {
+                width: 320px;
+                height: 320px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .header-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 80px;
+            }
+            
+            .intro-text p {
+                max-width: 100%;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .intro-text h1 {
+                font-size: 2.8rem;
+            }
+            
+            .profile-img {
+                width: 280px;
+                height: 280px;
+            }
+            
+            .cards-container, .skills-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 40px;
+            }
+            
+            .contact-form {
+                padding: 35px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .intro-text h1 {
+                font-size: 2.3rem;
+            }
+            
+            .intro-text p {
+                font-size: 1.1rem;
+            }
+            
+            .profile-img {
+                width: 240px;
+                height: 240px;
+                border-width: 8px;
+            }
+            
+            .card {
+                padding: 35px 25px;
+            }
+            
+            .contact-form {
+                padding: 25px;
+            }
+        }
+
+        /* 书单弹窗样式 */
+        .book-modal, .article-modal, .music-modal, .detail-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            overflow-y: auto;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .book-modal-content, .article-modal-content, .music-modal-content, .detail-modal-content {
+            position: relative;
+            background: var(--light-white);
+            max-width: 900px;
+            margin: 80px auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-strong);
+            overflow: hidden;
+            animation: slideUp 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .book-modal-header, .article-modal-header, .music-modal-header, .detail-modal-header {
+            background: linear-gradient(135deg, var(--primary-green), var(--primary-blue));
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .book-modal-header h2, .article-modal-header h2, .music-modal-header h2, .detail-modal-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-modal:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+
+        .book-list, .article-list, .music-gallery, .detail-content {
+            padding: 50px;
+        }
+
+        .book-item, .article-item, .detail-item {
+            background: rgba(248, 253, 248, 0.6);
+            border-radius: var(--border-radius-sm);
+            padding: 35px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(76, 175, 80, 0.1);
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .book-item:hover, .article-item:hover, .detail-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-soft);
+            background: var(--light-white);
+            border-color: rgba(76, 175, 80, 0.2);
+        }
+
+        .book-item::before, .article-item::before, .detail-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 5px;
+            background: linear-gradient(to bottom, var(--light-green), var(--light-blue));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .book-item:hover::before, .article-item:hover::before, .detail-item:hover::before {
+            opacity: 1;
+        }
+
+        .book-title, .article-title, .detail-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--primary-green);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .book-review-preview, .article-summary, .detail-summary {
+            color: var(--text-light);
+            line-height: 1.6;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .book-review-full, .article-full, .detail-full {
+            display: none;
+            padding-top: 25px;
+            border-top: 1px solid rgba(76, 175, 80, 0.1);
+            margin-top: 20px;
+            color: var(--text-dark);
+            line-height: 1.8;
+            font-size: 1.05rem;
+            white-space: pre-line;
+        }
+
+        .book-review-full.show, .article-full.show, .detail-full.show {
+            display: block;
+            animation: fadeInUp 0.6s ease;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .read-more-btn, .view-music-btn, .view-detail-btn {
+            background: linear-gradient(90deg, var(--light-green), var(--light-blue));
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 25px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .read-more-btn:hover, .view-music-btn:hover, .view-detail-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.3);
+        }
+
+        .book-quote {
+            font-style: italic;
+            color: var(--primary-blue);
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 3px solid var(--light-blue);
+            background: rgba(187, 222, 251, 0.1);
+            border-radius: 8px;
+        }
+
+        .book-tags {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .book-tag {
+            background: rgba(165, 214, 167, 0.2);
+            color: var(--primary-green);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .book-rating {
+            margin-top: 15px;
+            color: #ffc107;
+            font-size: 1.1rem;
+        }
+
+        /* 英文书评样式 */
+        .book-review-full.en, .article-full.en, .detail-full.en {
+            font-family: 'Lato', sans-serif;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* 音乐艺术弹窗样式 */
+        .music-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .music-item {
+            position: relative;
+            border-radius: var(--border-radius-sm);
+            overflow: hidden;
+            height: 400px;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition-smooth);
+        }
+
+        .music-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-strong);
+        }
+
+        .music-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .music-item:hover .music-img {
+            transform: scale(1.05);
+        }
+
+        .music-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 30px;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .music-item:hover .music-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .music-desc {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-top: 10px;
+        }
+
+        /* 文章内容样式 */
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .article-paragraph {
+            margin-bottom: 25px;
+            text-indent: 2em;
+        }
+
+        .article-quote {
+            font-style: italic;
+            color: var(--primary-blue);
+            padding: 20px;
+            margin: 25px 0;
+            border-left: 4px solid var(--light-blue);
+            background: rgba(187, 222, 251, 0.1);
+            border-radius: 8px;
+            font-size: 1.15rem;
+        }
+
+        /* 详细内容弹窗样式 */
+        .detail-item {
+            cursor: default;
+        }
+
+        .detail-section {
+            margin-bottom: 25px;
+        }
+
+        .detail-subtitle {
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .detail-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .detail-list-item {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .detail-list-item::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--light-green);
+            font-size: 1.2rem;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 992px) {
+            .book-modal-content, .article-modal-content, .music-modal-content, .detail-modal-content {
+                margin: 40px 20px;
+                max-width: calc(100% - 40px);
+            }
+            
+            .book-modal-header, .article-modal-header, .music-modal-header, .detail-modal-header {
+                padding: 30px 20px;
+            }
+            
+            .book-list, .article-list, .music-gallery, .detail-content {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .book-modal-header h2, .article-modal-header h2, .music-modal-header h2, .detail-modal-header h2 {
+                font-size: 2rem;
+            }
+            
+            .book-title, .article-title, .detail-title {
+                font-size: 1.5rem;
+            }
+            
+            .book-item, .article-item, .detail-item {
+                padding: 25px;
+            }
+            
+            .music-gallery {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .music-item {
+                height: 350px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .book-modal-header, .article-modal-header, .music-modal-header, .detail-modal-header {
+                padding: 25px 15px;
+            }
+            
+            .book-modal-header h2, .article-modal-header h2, .music-modal-header h2, .detail-modal-header h2 {
+                font-size: 1.7rem;
+            }
+            
+            .book-list, .article-list, .music-gallery, .detail-content {
+                padding: 20px 15px;
+            }
+            
+            .book-item, .article-item, .detail-item {
+                padding: 20px;
+            }
+            
+            .book-title, .article-title, .detail-title {
+                font-size: 1.3rem;
+            }
+            
+            .music-item {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 书单弹窗 -->
+    <div id="bookModal" class="book-modal">
+        <div class="book-modal-content">
+            <div class="book-modal-header">
+                <h2 id="modalTitle">我的书单</h2>
+                <p>每一本书都是一次灵魂的对话</p>
+                <button class="close-modal" id="closeModal">&times;</button>
+            </div>
+            <div class="book-list" id="bookList">
+                <!-- 书单内容将通过JavaScript动态生成 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 文章展示弹窗 -->
+    <div id="articleModal" class="article-modal">
+        <div class="article-modal-content">
+            <div class="article-modal-header">
+                <h2 id="articleModalTitle">我的文章</h2>
+                <p>用文字记录生活，用故事连接人心</p>
+                <button class="close-modal" id="closeArticleModal">&times;</button>
+            </div>
+            <div class="article-list" id="articleList">
+                <!-- 文章内容将通过JavaScript动态生成 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 音乐艺术弹窗 -->
+    <div id="musicModal" class="music-modal">
+        <div class="music-modal-content">
+            <div class="music-modal-header">
+                <h2 id="musicModalTitle">音乐与艺术</h2>
+                <p>在旋律中找到平静，在音符中感悟生活</p>
+                <button class="close-modal" id="closeMusicModal">&times;</button>
+            </div>
+            <div class="music-gallery" id="musicGallery">
+                <!-- 音乐艺术内容将通过JavaScript动态生成 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 详细信息弹窗 -->
+    <div id="detailModal" class="detail-modal">
+        <div class="detail-modal-content">
+            <div class="detail-modal-header">
+                <h2 id="detailModalTitle">详细信息</h2>
+                <button class="close-modal" id="closeDetailModal">&times;</button>
+            </div>
+            <div class="detail-content" id="detailContent">
+                <!-- 详细内容将通过JavaScript动态生成 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 背景艺术元素 -->
+    <div class="background-art">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+
+    <!-- 导航栏 -->
+    <nav id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                @Hyaa.
+            </a>
+            <div class="nav-links">
+                <a href="#about">关于我</a>
+                <a href="#skills">我的技能</a>
+                <a href="#abilities">技能展示</a>
+                <a href="#contact">联系我</a>
+                <button id="langToggle" class="lang-toggle">English</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 头部区域 -->
+    <header>
+        <div class="container header-content">
+            <div class="intro-text fade-in">
+                <h1>胡海璐</h1>
+                <p>热爱探索和思考的高中生。从学业挑战到校园领导，从创办公众号到深入心理学研究，我在不同的经历中找到了属于自己的声音。在持续学习和行动中，成为一个更自律、更开放、更具影响力的人。</p>
+                <a href="#contact" class="btn">与我联系</a>
+            </div>
+            <div class="profile-image-container">
+                <!-- 请将下面的图片URL替换为您自己的照片 -->
+                <img src="胡海璐的照片.png" alt="胡海璐的照片" class="profile-img">
+            </div>
+        </div>
+    </header>
+
+    <!-- 关于我 -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="cards-container">
+                <div class="card fade-in">
+                    <div class="card-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>学术成长</h3>
+                    <p>从班级中后游到托福103分，用一年半时间不断突破自己。主动答疑、系统复习、持续精进，这段经历让我学会在挫折中反思，在坚持中前行。</p>
+                </div>
+                
+                <div class="card fade-in">
+                    <div class="card-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>校园领导力</h3>
+                    <p>学生会副主席、Speech Club社长、班长。策划组织Horror Party、厨神大赛、迎新晚会等校园活动，通过组织与沟通锻炼能力，深刻理解责任与协作。</p>
+                </div>
+                
+                <div class="card fade-in">
+                    <div class="card-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>公众号「声命力」</h3>
+                    <p>创建并独立运营微信公众号，通过采访不同人群分享他们的故事。单篇点击量突破5000次，致力于用真实故事激励和帮助更多的人。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 我的技能 -->
+    <section id="skills" class="section" style="background: rgba(232, 245, 233, 0.15);">
+        <div class="container">
+            <div class="skills-container">
+                <div class="skill-item fade-in">
+                    <div class="skill-header">
+                        <span class="skill-name">📖 深度阅读与思考</span>
+                        <span class="skill-percentage">95%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="95"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item fade-in">
+                    <div class="skill-header">
+                        <span class="skill-name">✍️ 书评写作与表达</span>
+                        <span class="skill-percentage">90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="90"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item fade-in">
+                    <div class="skill-header">
+                        <span class="skill-name">🎹 钢琴演奏</span>
+                        <span class="skill-percentage">85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="85"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item fade-in">
+                    <div class="skill-header">
+                        <span class="skill-name">💬 深度沟通与倾听</span>
+                        <span class="skill-percentage">95%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="95"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item fade-in">
+                    <div class="skill-header">
+                        <span class="skill-name">🎤 演讲与公开表达</span>
+                        <span class="skill-percentage">88%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="88"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item fade-in">
+                    <div class="skill-header">
+                        <span class="skill-name">🎭 活动策划与组织</span>
+                        <span class="skill-percentage">87%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="87"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技能展示 -->
+    <section id="abilities" class="section">
+        <div class="container">
+            <div class="cards-container">
+                <div class="card fade-in">
+                    <div class="card-icon">
+                        <i class="fas fa-book-reader"></i>
+                    </div>
+                    <h3>阅读与思考</h3>
+                    <p>擅长深度阅读和批判性思考，能够从文学、心理学、哲学等多领域书籍中汲取智慧。《此刻是春天》让我理解平凡生活的意义，《莉莉亚娜不可战胜的夏天》教会我直面内心，每本书都是一次灵魂的对话。</p>
+                    <a href="#" class="btn view-booklist-btn" style="padding: 14px 28px; font-size: 0.95rem; margin-top: 15px;">查看书单</a>
+                </div>
+                
+                <div class="card fade-in">
+                    <div class="card-icon">
+                        <i class="fas fa-pen-fancy"></i>
+                    </div>
+                    <h3>写作与表达</h3>
+                    <p>拥有优秀的书评写作和文学分析能力，能够将复杂的思考和情感用文字准确表达。在各类写作竞赛中获奖，公众号文章获得广泛共鸣，用文字记录成长，用故事连接人心。</p>
+                    <a href="#" class="btn view-writings-btn" style="padding: 14px 28px; font-size: 0.95rem; margin-top: 15px;">阅读作品</a>
+                </div>
+                
+                <div class="card fade-in">
+                    <div class="card-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>音乐与艺术</h3>
+                    <p>多年钢琴演奏经验，能够通过音乐表达情感和创造美感。音乐不仅是技能，更是情感的表达和心灵的慰藉。在旋律中找到平静，在音符中感悟生活。</p>
+                    <a href="#" class="btn view-music-btn" style="padding: 14px 28px; font-size: 0.95rem; margin-top: 15px;">查看图片</a>
+                </div>
+                
+                <div class="card fade-in">
+                    <div class="card-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>沟通与领导</h3>
+                    <p>擅长深度对话和有效沟通，能够倾听他人并建立真诚连接。作为学生会副主席和社团负责人，具备团队领导和活动策划能力，在协作中实现共同目标。</p>
+                    <a href="#" class="btn view-leadership-details" style="padding: 14px 28px; font-size: 0.95rem; margin-top: 15px;">了解更多</a>
+                </div>
+                
+                <div class="card fade-in">
+                    <div class="card-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>心理学应用</h3>
+                    <p>深入学习CBT认知行为疗法、阿德勒个体心理学等理论，能够将心理学知识应用于自我成长和人际沟通中。在自我咨询中学会情绪管理与课题分离。</p>
+                    <a href="#" class="btn view-psychology-details" style="padding: 14px 28px; font-size: 0.95rem; margin-top: 15px;">查看详情</a>
+                </div>
+                
+                <div class="card fade-in">
+                    <div class="card-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>学习与适应</h3>
+                    <p>具备快速学习能力和强大适应力，从托福备考到多领域探索，展现了持续学习和自我突破的能力。在挑战中成长，在变化中找到方向。</p>
+                    <a href="#" class="btn view-learning-journey" style="padding: 14px 28px; font-size: 0.95rem; margin-top: 15px;">成长历程</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我 -->
+    <section id="contact" class="section" style="background: rgba(232, 245, 233, 0.15);">
+        <div class="container">
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>邮箱</h3>
+                            <p>huhailu.razx@outlook.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-comment-dots"></i>
+                        </div>
+                        <div>
+                            <h3>微信</h3>
+                            <p>huuu80223</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3>电话</h3>
+                            <p>15967460515</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form fade-in">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">姓名</label>
+                            <input type="text" id="name" placeholder="请输入您的姓名">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">邮箱</label>
+                            <input type="email" id="email" placeholder="请输入您的邮箱">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">留言</label>
+                            <textarea id="message" rows="5" placeholder="请留下您的信息..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn" style="width: 100%;">发送信息</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo" style="color: white;">
+                    @Hyaa.
+                </div>
+                
+                <div class="social-links">
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-weixin"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-codepen"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2023 胡海璐. 所有内容均为原创 | 设计：胡海璐</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 导航栏滚动效果
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // 滚动动画
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+
+        // 技能进度条动画
+        const skillBars = document.querySelectorAll('.skill-progress');
+        
+        const animateSkillBars = () => {
+            skillBars.forEach(bar => {
+                const width = bar.getAttribute('data-width');
+                const elementTop = bar.getBoundingClientRect().top;
+                
+                if (elementTop < window.innerHeight - 100) {
+                    setTimeout(() => {
+                        bar.style.width = width + '%';
+                    }, 300);
+                }
+            });
+        };
+
+        // 卡片悬停放大效果
+        const cards = document.querySelectorAll('.card, .skill-item, .contact-item, .social-icon');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                if (this.classList.contains('skill-item')) {
+                    this.style.transform = 'scale(1.03)';
+                } else {
+                    this.style.transform = 'translateY(-10px) scale(1.03)';
+                }
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                if (this.classList.contains('card')) {
+                    this.style.transform = '';
+                } else if (this.classList.contains('skill-item')) {
+                    this.style.transform = 'scale(1)';
+                } else if (this.classList.contains('social-icon')) {
+                    this.style.transform = 'translateY(-8px) scale(1.1)';
+                } else {
+                    this.style.transform = 'translateY(-8px)';
+                }
+            });
+        });
+
+        // 滚动事件监听
+        window.addEventListener('scroll', () => {
+            fadeInOnScroll();
+            animateSkillBars();
+        });
+
+        // 页面加载时执行一次
+        document.addEventListener('DOMContentLoaded', () => {
+            fadeInOnScroll();
+            animateSkillBars();
+            
+            // 表单提交
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    alert('感谢您的留言！我会尽快回复您。');
+                    contactForm.reset();
+                });
+            }
+            
+            // 平滑滚动导航
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // 添加随机动画效果
+            setInterval(() => {
+                const randomIndex = Math.floor(Math.random() * cards.length);
+                const randomCard = cards[randomIndex];
+                
+                randomCard.style.animation = 'pulse 1.5s ease';
+                setTimeout(() => {
+                    randomCard.style.animation = '';
+                }, 1500);
+            }, 8000);
+
+            // 初始化弹窗功能
+            initModalFunctions();
+        });
+
+        // 弹窗功能
+        function initModalFunctions() {
+            // 书单数据
+            const bookReviews = {
+                'zh': [
+                    {
+                        id: 1,
+                        title: '《莉莉亚娜不可战胜的夏天》',
+                        preview: '又一次在寝室里看完了一本书。终于看完了。我的心脏此刻狂跳不止，全身发麻...',
+                        fullReview: `又一次在寝室里看完了一本书。
+
+终于看完了。我的心脏此刻狂跳不止，全身发麻，莉莉亚娜这个形象在我心里烙下了深深的印记。
+
+原本是在网上看到了这本书，刚开始仅仅被它的外壳吸引，在匆匆了解后便下了单。拿到书是在10月份，我开始阅读，却感到无比枯燥乏味，这本书似乎一直在讨论我不感兴趣的"女权"抑或是简单地在描述莉莉亚娜一生的经历。
+
+书的前半部分其实可读性很低，甚至让人有弃书的想法。我很庆幸自己坚持读了下去。让我在书中看到了女性的脆弱与力量，我一次又一次无可救药地爱上了加尔萨笔下这个饱满，理性却又充满温情的女性。
+
+"三十年前，我的妹妹被前男友杀害了，我不遗余力地寻找，我知道，他体内一定有一个不可战胜的夏天。"
+
+莉莉亚娜的生命在30年前的夏天消逝，她遭到了安赫尔的杀害。但我并不想将她描述为简单的"受害者"，她始终忠于自己的内心，诚实地记录生活，坦然面对所有的人事物。她是温馨细腻的朋友，就像蜡烛般照亮身边人的生命，会让他们不由得感叹"莉莉亚娜是我给我的自由取的名字"；她也是一名优秀的游泳健将，让加尔萨在每次触碰泳池时感受到莉莉亚娜的存在："她依然存在，存在于碳和磷中，存在于钠中，存在于氯中。"她以"自由"自称，不愿接受爱的约束与控制，却在笔记本上偷偷写下："曾经保护着我的孤独感出现了裂痕，我精心呵护的屏障正在被刺穿。"
+
+莉莉亚娜在面对每一段恋情时都透露出了不可理喻的理性与冷静，似乎是一个在19世纪墨西哥传统的影响下羞于聊感情的书呆子。但越读到后面就越发注意到莉莉亚娜的行为与她自己内心期待与预设的"人设"不符，甚至有些矛盾，我才猛然意识到，这只是她一种自我麻痹来逃避自我感受的一种方式。她反复地将真心交出去，却又像蜗牛触角似的在轻触后又快速的收了回来。在加尔疯狂的追求下，她冲动地写下了信件："我永远也不可能与你在一起！"
+
+其实莉莉亚娜一直不愿意面对自己的敏感和感性，她害怕那样的自己，其实更怕受伤。
+
+可事情终于在后来迎来了转机。在被安赫尔持续精神和身体的伤害之后，她决定追寻自己的内心，承认内心对嘉尔的感情。她发疯似的在纸上写下："我曾经爱过你，也许现在也依然爱着你。这太蠢了，不值一提。"看到这里，我的内心深受感动，这不仅仅是一封信，更是一个女孩对于自己内心深处的自我认可和直面自己痛处的勇气，哪怕最后这封信并没有落到加尔的手中。
+
+就在我以为莉莉亚娜逐渐打开自己时，意外发生了。
+
+她死在了自己的房间里，那个她用来生活，学习，享受独处与陪伴的地方。
+
+凶手并没有被绳之以法。
+
+在几日后人们逐渐遗忘了这件案子。
+
+"被虐待的女性留下来，是因为他们看到熊正在逼近，而他们想活下去。"
+
+在当时的墨西哥，被男友杀害等等甚至没有一个罪名，也没有被重视。无比的思念与悲伤使得加尔萨不得不在30年后重拾这些记忆，不仅仅为莉莉亚娜，而是为那些在受困扰的女性发声，让更多的人知道。
+
+我想，无论如何，加萨尔达到了她的写作目的。
+
+此刻我相信，在每个人的体内都有一个不可战胜的夏天。
+
+(ps也许是出于我自己的原因，在阅读时侧重点并没有被放在这本书被广泛阅读的"女性安全"这一主题上。更多的侧重点是让我看到了一个不完美的女孩的成长与自我探索与挣扎以及加尔萨一家对于莉莉亚娜不可描述的爱。在写完后我阅读了很多书评，有很多人觉得这本书从不同角度叙事让故事情节变得混乱，但我始终认为，正是这样不同角度的叙述让莉莉亚娜这个形象在矛盾中变得越来越立体，饱满。在不同视角的描述下，莉莉亚娜逐渐变得鲜活。她不再是单一的"好"或是"不好"，而是一个复杂，不可估计，完整的个体。)`,
+                        quote: '在每个人的体内都有一个不可战胜的夏天。',
+                        tags: ['女性成长', '自我探索', '文学小说', '墨西哥文学'],
+                        rating: '★★★★★'
+                    },
+                    {
+                        id: 2,
+                        title: '《此刻是春天》',
+                        preview: '窝在寝室的小角落里读完了这本书。小说讲述了李春晖的一生，他的一生很平淡，就像大部分普通人一样...',
+                        fullReview: `窝在寝室的小角落里读完了这本书。
+
+小说讲述了李春晖的一生，他的一生很平淡，就像大部分普通人一样，不完美的原生家庭，没有完成的梦想，误打误撞的职业，忽如其来的起伏…他一路上遇到了很多人也失去了很多人。但顶多他找到自己了。
+
+刚开始读的时候只觉得压抑，既然努力没用那经历这么多磨难的意义是什么？如果生活就是这样，那走那么远旅途的目的地又在哪里？但是越到后面的文字就越掷地有声。
+
+李春晖虽然没能如愿成为作家，完成自己儿时的目标，但却以另一种方式影响着身边的人。在北京这个忙碌的地方，李春晖像一条平静的溪流一样随着时间向前流着，流过的地方都得到了滋润。
+
+原本我一直以为一条提前既定的路没有自成功就完蛋了，却老是忘记人生其实有很多条通往成功的路。只是人们在做选择的时候忘记人生的选择其实很多。其实人生的容错率很高。
+
+书的后半部分，眼泪总随着文字流下。我已经忘了李春晖是不是一个"成功"的人了，只记得他的一生虽然平淡却充满意义。
+
+每当我开始替李春晖感到绝望时，希望就在这个黑色的世界里扎了一个小孔，透进来了阳光，虽然微弱，但却足以让生活在这个世界里的人获得希望。
+
+正是生活中这些小小的碎片组成了完整的我。
+
+能把握的当下就是回忆里的春天。
+
+"我们每个人的命运都像是一条河流，有时候渺小，有时候波澜壮阔，有时候路过阳光闪着金色的光，有时候因为丛林密布而没有一丝光亮，唯一不变的，是河流始终向前。我们不会停留在痛苦的地方，也不会停留在开心的地方。"`,
+                        quote: '能把握的当下就是回忆里的春天。',
+                        tags: ['人生哲理', '成长故事', '中国文学', '现实主义'],
+                        rating: '★★★★☆'
+                    },
+                    {
+                        id: 3,
+                        title: '《你当像鸟飞往你的山》（《Educated》）',
+                        preview: 'When I finished reading, I felt my concept was refreshed. I think this is the most powerful memory I\'ve ever read...',
+                        fullReview: `When I finished reading,I felt my concept was refreshed.I think this is the most powerful memory I've ever read.When I was reading,I almost lost myself in it.I even can feel the tensions and under the descriptions of the writer,I felt my heart was beating faster and faster with the writer's when her brother——Shawn,was coming.I even can image the dull atmosphere and the helpless feeling though I never experienced these things. In the process of my reading,I couldn't help searching the information about the 'Family of origin' and 'the bipolar affective disorder.'
+
+From the Internet, I choose a part of the definition of the family or origin:'Rather than a biological definition, this term seeks to identify the people closest to you as you grew and developed.'Besides,I also searched some information that shows how and why the family of origin is so important and has such a big influence on one person:'This origin is important because it plays a significant role in the way you are raised. Your origin usually has certain religious, philosophical, and moral beliefs, and it is through these lenses, you are brought up, disciplined, encouraged, and even defined. How you are raised can extend past numerous generations or may only cover one or two generations.'
+
+Now,let's relate the definition to the experience of Tara.From the experience of Tara, we can see that Tara's father is considered as a Mormon but in the Tara's eyes, her father wasn't a true Moron but do extreme things under the Mormon flag like ,preventing his children from going to school so that they wouldn't be 'brainwashed' by the government. And Tara grew up in a family that has a violent brother and a bipolar father.Her brother maltreated her and her mother cheated her just for satisfying her husband while also comforting her daughter. Besides, Tara's sister backstabbed her for gaining the trust of the rest of the family members.Her father isolated her and didn't allow her to see a doctor or wear the clothes that show a arm or any other parts of the body, and under the influence of her father, the members inherited family considered what's that a Whore would wear.As result, when Tara went to the university, at first, it was a shame for her to wear the clothes like ordinary people wore.And she rejected to see a doctor or take pills.Eventually,she broke up with her boyfriends because once she touched her boyfriends, she couldn't help hearing her dad's sound:WHORE…Now you can see how the original family's influence on a person.
+
+However,it's hard for me to say that Tara's dad didn't love her,and there is one of the evidences that I select from the book(it happened when Tara was going to Harvard and her dad farewelled her): "If you're in America,'he'd whispered,'we can come for you.Wherever you are.I've got a thousands of gallons of fuel buried in the field.I can fetch you when The End comes, bring you homemade you safe.But if you cross the ocean…'"Actually,I have to admit that when I first saw this occasion,I was deeply moved.
+
+Then,what's the real reasons that causes Tara's father's action so odd?In my opinion, that's probably because of the bipolar affective disorder. The bipolar affective disorder is A mental health condition that affects an individual's emotions.According to the information on the Internet and the description in the book, the ymptoms that the bipolar affective disorder would be like the followings: 
+*Extreme happiness, hopefulness, and excitement
+*Irritability, anger, fits of rage and hostile behavior
+*Restlessness
+*Agitation
+*Rapid speech
+*Setting unrealistic goals
+*Paranoia
+(I choose some symptoms that match the behaviors of Tara's father perfectly)
+As you can see,it's no exaggeration to say that the description to the bipolar affective disorder is absolutely the same of the description to Tara's father.
+
+At this point, I began to wonder why Tara changed in the end.It's no double that it should give the credits to EDUCATION.
+
+At first,I complained that the writer didn't draw a clear distinction between the primary and the secondary, but after seeing the changes of Tara,everything that seems redundant began to make sense.The author began college and learned many things that didn't go the way to what her father has told her,and she found that the Mormons around her were not as that 'religious' as her father told.Gradually,Tara broadened her view and saw a more complete world through the medium of education.And from the moment she entered the university,her life was distinctive tone different.It was a potential reversed point in her life.That's also the reason why she was willing to choose education instead of fitting in her family.
+
+Last but not least,I yearn to mention a person who is the leader and the only light in Tara's life——Tyler.He is the person who encouraged Tara to go to the college and the one who gave a hand to her when no one believed her.At the risk of being enemy of his families, he believed Tara and supported her stoutly.If the original family is the cage in Tara's life that isolated the light, then Tyler is the crack in the cage that lets the light in.`,
+                        quote: 'Education is the key to unlock the golden door of freedom.',
+                        tags: ['自传', '教育', '原生家庭', '自我救赎', '英文原著'],
+                        rating: '★★★★★',
+                        isEnglish: true
+                    }
+                ]
+            };
+
+            // 文章数据
+            const articles = {
+                'zh': [
+                    {
+                        id: 1,
+                        title: '银杏',
+                        date: '2024年秋',
+                        summary: '一篇关于银杏的散文，通过观察一棵银杏树在秋雨中的变化，探讨了挫折与成长的关系。雨后的银杏展现出全新的生命力，象征着经历挫折后的重生与希望。',
+                        content: `南方的秋是温柔的。
+银杏叶在秋的点染下披上了金黄的薄纱，随着微风的吹拂奔向大地的怀抱。
+
+那是一个深秋的夜晚，一张试卷打破了我对未来无限的幻想。我死死的盯着那鲜红的分数，心中五味杂陈。我闭上眼，红通通的分数在脑中挥之不去，化作一个黑色的漩涡，巨大的吸力使我在外面做无力的挣扎。我害怕挫折，我渴望看到结果。
+
+到家后，我瘫倒在沙发上，静静的望着窗外渐渐昏暗的天空。
+
+我决定出去走走。
+
+我蜷缩着身体到了楼下，找了一张已经被风雨打得不成样子的褐色长椅上坐下。那长椅上布满大大小小的裂痕，完美地向人们诠释着自己的故事。正对着长椅的是一棵银杏树，书上布满了暗黄的叶子，稀稀拉拉，相互交错着。叶片下方的树干被缠上了几圈白色麻布，在暗黄中显得尤为突兀。
+
+身后渐渐吹起了寒风，伴随着几滴雨水，银杏树开始自由地舞动。紧接着，风越吹越大，稀疏的雨点也变为豆大的水珠。银杏树的舞姿开始变得机械，直到最后成了风雨的提线木偶，被肆意地玩弄着。水珠变得愈发密集，无情地冲刷着叶片，耳旁呼啸的寒风使得本就为数不多的叶子摇摇欲坠。干枯的树干拼尽最后一丝力气紧紧的拽着叶片。
+
+我静静地看着，雨滴拍打在肩头，夹杂着地上的雨声，全都噼里啪啦乱做一片。顿时，无数的委屈与奋斗的回忆涌上心头。视野开始变得模糊，眼中的事物被揉成了一团，只能隐约望见暗黄的银杏树在风中挣扎。我在长椅上躺下，任由雨水砸向身体，眼泪与雨水在脸上糊在一起，早已无法分辨究竟是泪是雨。
+
+醒来时，已是清晨，但黎明还未破晓。我想坐起来，却发觉全身发麻，应是昨夜风雨所致。挣扎着爬起来，恰巧赶上日出。昏沉沉的天空先是渐渐明亮起来，接着便望见由地平线投送而来火红的光晕点燃了雾蒙蒙的天空。随之而来的是一块小球伴随着金光不断向上移动，将天空划开了一道裂痕，最终悬挂在了半空中。
+
+随着时间的推移，大地被盖满了蛋黄，浅黄，鹅黄，奶黄。无数的黄色冗杂在一起，叫醒了沉睡着的世界。
+
+转头望向银杏树，每个叶子在昨日大雨的洗涤下脱去了暗黄，取而代之的是从未有过的嫩黄。明亮的黄色光芒滋润着叶片，树银杏树上产生了一块一块的金光。我猛然发现，昨天的雨不单单打击着叶片，而且在为今天的叶片更好地迎接新的自己做准备。
+
+若没有昨夜雨的冲刷，就没有今天叶的金光；若没有昨天雨的冲刷，就没有今天银杏傲然挺立的身影。
+
+挫折并不可怕。
+
+挫折不仅仅使我们跌倒，更使我们为成功做了一次准备。当准备充足时，成功自然会来到。`
+                    },
+                    {
+                        id: 2,
+                        title: '属于狗的夜晚',
+                        date: '2024年冬',
+                        summary: '一个关于农村夜晚的观察，描绘了一只白天平凡、夜晚深邃的狗。文章探讨了在快节奏生活中保持内心宁静和自我认同的重要性，以及不被世俗定义的价值。',
+                        content: `农村房顶上的烟囱喷射出缕缕炊烟，卷起了阵阵花白的圆圈，随即被一阵清冷的风吹散在空气中，便不知所踪。天色渐渐昏暗了下来，农村的人们总睡得很早，晚饭过后，农村便被一股静寂压住，一切便陷入了深深的沉睡。
+
+我拉掉手边的灯，辗转反侧却迟迟无法入睡。无奈地坐起来，戴上眼镜，在窗外的黑寂中隐隐望见了一个身影端坐在地上，顿时猛然一惊，悄声穿上拖鞋向窗外细细望去。街道昏暗的路灯打着寒颤，黄悠悠的光线在冷风中抖动，仿佛一阵风便可以将它吹散。
+
+那是奶奶家的狗。我们只有在过年时回到奶奶家一起住上几天。因为父母担心奶奶独自在家不安全，于是从山上的朋友家拉来了一条土狗。年迈的奶奶不会养狗，因此这只可怜的小黄狗便天天吃着奶奶的残羹剩饭。白天它去鸡棚里偷吃一口鸡食，与小猪争上一口豆角，口渴了就去家乡前的小河里舔几下。每当夜幕降临，它就自觉地蹲坐在门口，一但听到一点动静便进入战斗状态。在我们一家人的印象中，它是一条笨狗，一条只会为了一口食物低声下气的看家狗。
+
+然而眼前的它却不是一只普通的狗。此时的它早已舔净自己的爪子，梳理好了自己的毛发，安静地沐浴在月光之中，凝望着深黑色天空中皎洁无比的月亮，深邃的眼中装下了整片星空。它的嘴巴对着漆黑的夜空，时而看得入迷了便扬起头颅用沙哑的声音轻声地唔上几声，有时也可能对月长吠一声，然后继续望着远方的月亮，仿佛在和月亮建立什么独特的联系。我相信他一定也能听到月亮的回应，只不过用人类的耳朵无法做到罢了。
+
+我呆呆地看着这样的场景，不敢发出声响，我知道，倘若我以主人的身份发出一点声响，便会将这种联系中断，强制地将这只可怜的小家伙从美好的境界中拽出，将它拽回岗位，使他变成白天一样普通的看家狗。
+
+无可置疑，我们需要一只认真看家的狗，一只见了人会用尾巴热情欢迎的狗，一只会维护黑夜中四围安全的狗。然而我却更喜欢这种状态下的狗，一只会在世界陷入沉睡时认真思考，望着月亮静静用心感受的狗。
+
+我在它的身上看到了自己的影子。
+
+人们往往只注意到了白天时为了一口吃的而低声下气讨食的狗，于是便匆忙下了定义，却很少看到星光满布时对月长鸣，将一切人间事物抛之脑后的狗。此时的狗不再为一口食物而劳累，不再为讨好别人而摇头摆尾。此时的它拥有与人一样的思考与感受，甚至比人更丰富。
+
+狗即如此，人亦是如此。人们也需要从学业的压力与快节奏的生活中抽出身来，远离一下喧嚣的城市与车水马龙，静静地在拥挤的世界森林中搭起只属于自己的小屋，静静地听一下内心的细水长流。
+
+而这间小屋却不一定要被遮拦天空的树木知道，你只是要给自己在繁忙中喘口气，保留住内心那个真正的自己，不要用世俗的语言去定义自己，就像那只不被人真正认识，在黑暗中仰望月光的狗一样。`
+                    },
+                    {
+                        id: 3,
+                        title: '2025.年终',
+                        date: '2025年12月',
+                        summary: '一篇年终总结，记录了2025年的幸福时刻和成长感悟。从迎新晚会的欢乐到日常生活中的小确幸，文章展现了如何在平凡中发现幸福，并对2026年充满期待。',
+                        content: `刚结束迎新晚会，窗外呼呼刮着冷风，我正和一群朋友们窝在海底捞吃着火锅。座位有点窄，人有点多，大家都贴着坐，但没有感觉拥挤，倒是显得这个冬天没那么冷了。
+
+锅里的汤冒着热气，卷出层层白烟消失在空气中，特别暖和。隔壁桌的交谈声和锅底滚出气泡的炸裂声被我们的笑声盖过，真幸运跨年组还在。
+
+2025真是幸福的一年，让我遇到了挚友们。
+
+其实在此之前我一直不知道什么时候该用"幸福"这个词，甚至觉得有点过于煽情。但是2025的后半年，我发现这个字眼频繁地出现在了我和朋友们的聊天记录里。好像在某个不为人知的角落，幸福的种子悄悄生根发芽，而现在已经长成了一个有模有样的树苗。这棵树苗一定会在以后长成一棵参天大树，所有人事物都会成为她向上生长的养料。
+
+从前几个月开始，我创建了一个名为"幸福清单"的备忘录，每当我感到幸福的事情发生时就记录下来。渐渐地，我发现让我感到幸福的事情往往是生活中不经意的小事：睡眠质量好，会夸赞自己和别人，无意找到丢的东西......原来幸福一直在身边。
+
+还有一部分幸福的原因是寝室从朝南换到了朝阳，终于告别了两年的阴湿生活。在此之后的每周末从床上醒来就能看到阳光暖烘烘地从窗外铺洒进来，照得房间亮亮的，心里也暖暖的。此时我会从窗外收一双被阳光晒得干巴巴但暖和的袜子进来，放在手上揉几下，撒出的毛絮在阳光的照射下亮晶晶的，跟个微观世界似的，每个毛絮都有自己的运动轨迹，自顾自地漂浮在阳光下，看着居然也有几丝可爱。
+
+2025肯定也流过很多泪，但我现在只记得2025是很幸福的一年了。
+
+2026一定会更幸福的，祝你也祝我，新年快乐。`
+                    }
+                ]
+            };
+
+             // 音乐艺术数据
+            const musicArt = {
+                'zh': [
+                    {
+                        id: 1,
+                        title: '钢琴练习时刻',
+                        description: '沉浸在音乐的世界中，每一次指尖触碰琴键都是与内心的对话。',
+                        image: 'file:///Users/mima0000/Desktop/胡海璐的作业/6b18e4dea8eddb2f0192116e869e3d46.jpg'
+                    },
+                    {
+                        id: 2,
+                        title: '音乐会的记忆',
+                        description: '舞台上的灯光，指尖的旋律，那一刻音乐成为连接心灵的桥梁。',
+                        image: 'file:///Users/mima0000/Desktop/胡海璐的作业/bcb00b1d297953481ab95d8823c4f49a.jpg'
+                    }
+                ]
+            };
+
+            // 详细信息数据
+            const detailsData = {
+                'psychology': {
+                    'zh': {
+                        title: '心理学应用 - 完整版',
+                        content: `在我看来，心理学帮助我通过理论知识了解了自己。
+
+从初中开始我便一直忙于学习，每天都很焦虑，这种焦虑一直持续到高中。但是我却不理解焦虑情绪的起因，知道高中上了AP心理学，讲到了humanistic perspective，他强调self-actualization，即人的最高目标是发挥潜能，实现"真正的自我"，才让我意识到原来我的焦虑是一种本能反应。并且Rogers还认为一个人是可以被无条件接纳的。这个学习过程也帮助我加深了对自己的了解，帮助我学会缓解焦虑。于是我开始对心理学产生了兴趣。
+
+为了更进一步了解心理学相关知识，我在网络上的心理相关平台找到了一位心理咨询师，并向他咨询有关情绪管理类的心理学知识，于是又学习到了"Cognitive model" in Cognitive Behavioral Therapy (CBT)，通过画思维导图的方式拆解自己的情绪，从而从根源解决问题。除此之外，我在网上查阅数据，根据美国精神病学协会（APA）和世界卫生组织（WHO）的数据，全球ADHD的出现率在青少年中约为5%-7%，并且相对于前几年已经上升了很多，全球青少年抑郁症的发病率在过去的几十年中逐渐增加，于是我通过自己创建的公众号采访了一位心理机构治疗多动症和抑郁症的医生，更深入的了解了当代青少年面临的问题和这些心理疾病的诱因，例如社媒与互联网使用的增加，学业压力的上升以及社会节奏的加快。
+
+我希望系统性地拓展自己在心理学领域的理解与知识储备，于是开始阅读心理学的书籍，从Maybe You Should Talk to Someone，Counselling for Toads到后来的The Courage to Be Disliked。其中The Courage to Be Disliked令我印象最深刻，他植根于植根于阿德勒个体心理学，告诉我人很多对待外界的看法和情绪的接收其实是一种自我选择，每个人都会在童年形成一种独特的信念和思维方式，作为他解释世界的生活方程式。但这并非宿命，而是可以通过自我觉察和改变来调整的。并且通过哲人和年轻人对话的形式教会了我如何做到正确的课题分离，将属于自己责任的事与属于他人责任的事分开，从而减少不必要的焦虑与依附。`
+                    },
+                    'en': {
+                        title: 'Psychology Application - Full Version',
+                        content: `In my opinion, psychology helps me understand myself through theoretical knowledge.
+
+Since middle school, I have been busy with studies, feeling anxious every day. This anxiety persisted until high school. However, I didn't understand the cause of this anxiety until I took AP Psychology in high school, where I learned about the humanistic perspective. It emphasizes self-actualization, meaning that the highest goal of a person is to realize their potential and achieve the "true self." This made me realize that my anxiety was an instinctive response. Additionally, Rogers believed that a person could be unconditionally accepted. This learning process helped me deepen my understanding of myself and learn to alleviate anxiety. Thus, I began to develop an interest in psychology.
+
+To further understand psychology-related knowledge, I found a psychological counselor on an online psychology platform and consulted with them about emotion management psychology. Through this, I learned about the "Cognitive model" in Cognitive Behavioral Therapy (CBT), which involves breaking down one's emotions through mind mapping to address the root cause of problems. Furthermore, I researched data online. According to the American Psychiatric Association (APA) and the World Health Organization (WHO), the prevalence of ADHD among adolescents globally is about 5%-7%, and it has increased compared to previous years. The incidence of adolescent depression worldwide has also gradually increased over the past few decades. Through the public account I created, I interviewed a doctor from a psychological institution who specializes in treating ADHD and depression. This allowed me to gain a deeper understanding of the challenges faced by contemporary adolescents and the triggers of these mental health issues, such as increased social media and internet usage, rising academic pressure, and the accelerated pace of society.
+
+To systematically expand my understanding and knowledge in the field of psychology, I began reading psychology books, from Maybe You Should Talk to Someone and Counselling for Toads to The Courage to Be Disliked. Among these, The Courage to Be Disliked left the deepest impression on me. Rooted in Adlerian individual psychology, it taught me that many of our perceptions of the outside world and emotional responses are actually self-chosen. Everyone develops a unique set of beliefs and ways of thinking in childhood, which serve as their life equation for interpreting the world. However, this is not fate but can be adjusted through self-awareness and change. Through the dialogue between the philosopher and the young person, it taught me how to properly separate tasks—distinguishing between what is my responsibility and what belongs to others—thereby reducing unnecessary anxiety and dependence.`
+                    }
+                },
+                'leadership': {
+                    'zh': {
+                        title: '沟通与领导 - 详细项目',
+                        content: `以下是我在校园领导力方面的具体项目和实践：
+
+<div class="detail-section">
+    <div class="detail-subtitle">Speech Club社长</div>
+    <p>在高一的时候，我参加了学校的公众演讲活动，并在准备过程中发现了许多同学对于英语演讲缺乏自信，甚至害怕开口表达。虽然他们都想要进步，但却不知道该如何提升自己的演讲技巧。尤其是在面对网络上鱼龙混杂的信息时，他们感到迷茫和困惑。</p>
+    <p>当我注意到这些时，我决定采取行动来帮助同学们。于是我在学校招募社团时成立了一个Speech Club，旨在帮助同学们克服对公众演讲的恐惧，提升自信心，更加大胆地表达自己。</p>
+    <p>为了确保我们社团所提供的课程内容有效，我投入了大量时间进行课前准备。每个周末，我都花很多时间查阅资料，筛选有用的信息，并根据不同的学习需求制作PPT和备课。刚开始社团成员大部分都非常内向，不擅长表达自己。但随着课程的开展，我看到大家的进步和变化。</p>
+    <p>在speech club开展了一个学期后，社团的一名男同学逐渐找到了自己对演讲的兴趣和热情，甚至成为了迎新晚会的十佳歌手比赛主持人，并与另一位成员一起合作，在迎新晚会上表演了英语脱口秀。课程结束时，很多社员都向我表达了感谢，他们说是speech club帮助他们了解到自己的兴趣，战胜了自己内心原本对演讲的恐惧，并找到自信。</p>
+    <p>这段经历让我意识到作为一个领导者，重要的不仅仅是领头羊，更多的是对团队成员们的关心和对他人潜能的激发。通过帮助他们逐步突破自我，我深刻地感受到了领导力的意义，并不是简单的发号施令，而是通过自己所拥有的资源帮助更多的人变得更好。</p>
+</div>
+
+<div class="detail-section">
+    <div class="detail-subtitle">学生会副主席</div>
+    <p>竞选并当选学生会副主席，参与策划并组织了以下校园活动：</p>
+    <ul class="detail-list">
+        <li class="detail-list-item">Horror Party - 万圣节主题晚会，参与人数超过200人</li>
+        <li class="detail-list-item">厨神大赛 - 校园烹饪比赛，展现了同学们的创意和团队合作</li>
+        <li class="detail-list-item">夺旗大赛 - 户外团队竞技活动，增强了同学们的团队精神和体能</li>
+        <li class="detail-list-item">迎新晚会 - 年度最大的校园文化活动，协调了多个社团的表演节目</li>
+    </ul>
+</div>
+
+<div class="detail-section">
+    <div class="detail-subtitle">班长</div>
+    <p>作为班长，我组织了以下班级集体活动：</p>
+    <ul class="detail-list">
+        <li class="detail-list-item">班级合唱比赛 - 组织排练并带领班级获得校级比赛二等奖</li>
+        <li class="detail-list-item">班主任节 - 策划感恩活动，表达对班主任的感谢之情</li>
+        <li class="detail-list-item">运动会开幕式 - 负责班级方阵的组织和排练</li>
+        <li class="detail-list-item">班级文化建设 - 定期组织班会，营造积极向上的班级氛围</li>
+    </ul>
+    <p>这些经历不仅锻炼了我的组织与沟通能力，也让我深刻理解了责任与协作的意义。我学会了如何在压力下保持冷静，如何协调不同意见，以及如何激励团队成员共同朝着目标努力。</p>
+</div>`
+                    },
+                    'en': {
+                        title: 'Communication & Leadership - Detailed Projects',
+                        content: `Here are my specific projects and practices in campus leadership:
+
+<div class="detail-section">
+    <div class="detail-subtitle">Speech Club President</div>
+    <p>In my first year of high school, I participated in the school's public speaking activities and noticed that many students lacked confidence in English speaking, even fearing to express themselves. Although they wanted to improve, they didn't know how to enhance their speaking skills. They felt lost and confused, especially when faced with the overwhelming amount of information online.</p>
+    <p>When I noticed this, I decided to take action to help my classmates. So, during the school's club recruitment period, I founded a Speech Club aimed at helping students overcome their fear of public speaking, boost their confidence, and express themselves more boldly.</p>
+    <p>To ensure the effectiveness of the club's curriculum, I invested significant time in preparation. Every weekend, I spent hours researching materials, filtering useful information, and creating PPTs and lesson plans tailored to different learning needs. At first, most club members were introverted and struggled with self-expression. But as the courses progressed, I witnessed their growth and transformation.</p>
+    <p>After one semester of the Speech Club, one male member gradually discovered his interest and passion for speaking. He even became the host of the Top Ten Singers Competition at the Welcome Party and collaborated with another member to perform an English stand-up comedy at the event. At the end of the course, many members expressed their gratitude to me, saying that the Speech Club helped them discover their interests, overcome their fear of speaking, and build confidence.</p>
+    <p>This experience made me realize that as a leader, it's not just about leading but also about caring for team members and unlocking their potential. By helping them gradually break through their limits, I deeply understood that leadership is not about giving orders but about using one's resources to help others become better.</p>
+</div>
+
+<div class="detail-section">
+    <div class="detail-subtitle">Student Council Vice President</div>
+    <p>I ran for and was elected as the Student Council Vice President. I participated in planning and organizing the following campus activities:</p>
+    <ul class="detail-list">
+        <li class="detail-list-item">Horror Party - A Halloween-themed event with over 200 participants</li>
+        <li class="detail-list-item">Cooking Competition - A campus cooking contest showcasing creativity and teamwork</li>
+        <li class="detail-list-item">Capture the Flag Competition - An outdoor team competition that enhanced team spirit and physical fitness</li>
+        <li class="detail-list-item">Welcome Party - The largest annual campus cultural event, coordinating performances from multiple clubs</li>
+    </ul>
+</div>
+
+<div class="detail-section">
+    <div class="detail-subtitle">Class Monitor</div>
+    <p>As the class monitor, I organized the following class activities:</p>
+    <ul class="detail-list">
+        <li class="detail-list-item">Class Choir Competition - Organized rehearsals and led the class to win second place in the school competition</li>
+        <li class="detail-list-item">Homeroom Teacher Appreciation Day - Planned gratitude activities to thank the homeroom teacher</li>
+        <li class="detail-list-item">Sports Day Opening Ceremony - Responsible for organizing and rehearsing the class formation</li>
+        <li class="detail-list-item">Class Culture Building - Regularly organized class meetings to foster a positive and uplifting class atmosphere</li>
+    </ul>
+    <p>These experiences not only honed my organizational and communication skills but also deepened my understanding of responsibility and collaboration. I learned how to stay calm under pressure, coordinate differing opinions, and motivate team members to work together toward common goals.</p>
+</div>`
+                    }
+                },
+                'learning': {
+                    'zh': {
+                        title: '学习与适应 - 成长历程',
+                        content: `我的学术成长历程充满了挑战与突破，以下是我在学习与适应方面的具体经历：
+
+<div class="detail-section">
+    <div class="detail-subtitle">从班级中后游到托福103分</div>
+    <p>在刚进入高中时，我的成绩仅仅在班级的中后游。面对这样的起点，我没有气馁，而是开始了持续的努力和突破。</p>
+    <p>为了提升自己的英语水平，我制定了一套系统的学习计划：</p>
+    <ul class="detail-list">
+        <li class="detail-list-item">利用周末时间系统学习英语语法和词汇</li>
+        <li class="detail-list-item">在食堂排队时背单词，充分利用碎片时间</li>
+        <li class="detail-list-item">每天坚持听英语播客和新闻，培养语感</li>
+        <li class="detail-list-item">每周完成一套完整的托福模拟题</li>
+    </ul>
+    <p>通过一年半的持续努力，我的托福成绩从75分提升到了103分。这个过程中，我学会了如何在挫折中反思，在坚持中前行。每次遇到困难，我都会分析原因，调整方法，然后继续前进。</p>
+</div>
+
+<div class="detail-section">
+    <div class="detail-subtitle">AP学习的挑战与突破</div>
+    <p>在AP课程的学习过程中，我也遇到了不少挑战：</p>
+    <ul class="detail-list">
+        <li class="detail-list-item">上课听不懂复杂的概念和理论</li>
+        <li class="detail-list-item">理解了的知识点很快就忘记</li>
+        <li class="detail-list-item">难以将理论知识与实际应用相结合</li>
+        <li class="detail-list-item">面对大量的阅读材料感到压力巨大</li>
+    </ul>
+    <p>为了克服这些困难，我采取了以下策略：</p>
+    <ul class="detail-list">
+        <li class="detail-list-item">主动与老师约答疑时间，提前准备好问题清单</li>
+        <li class="detail-list-item">一列出自己不懂的点，逐个击破</li>
+        <li class="detail-list-item">组建学习小组，与同学互相讨论和帮助</li>
+        <li class="detail-list-item">制作思维导图，将知识点系统化</li>
+    </ul>
+    <p>我始终坚持一个原则：不懂就问，直到彻底理解为止。这种持续追问的态度不仅帮助我掌握了知识，也锻炼了我的批判性思维和解决问题的能力。</p>
+</div>
+
+<div class="detail-section">
+    <div class="detail-subtitle">学习方法的优化</div>
+    <p>通过这段经历，我总结出了一套适合自己的学习方法：</p>
+    <ul class="detail-list">
+        <li class="detail-list-item"><strong>主动学习</strong>：不再被动接受知识，而是主动探索和提问</li>
+        <li class="detail-list-item"><strong>系统复习</strong>：定期回顾和整理知识点，形成知识体系</li>
+        <li class="detail-list-item"><strong>持续精进</strong>：保持学习热情，不断挑战更高目标</li>
+        <li class="detail-list-item"><strong>时间管理</strong>：合理安排学习、休息和活动时间</li>
+    </ul>
+    <p>这段成长历程让我明白，学习不仅仅是为了获得好成绩，更是一个不断突破自我、发现潜能的过程。每一次挑战都是一次成长的机会，每一次挫折都是一次反思的契机。</p>
+</div>`
+                    },
+                    'en': {
+                        title: 'Learning & Adaptation - Growth Journey',
+                        content: `My academic growth journey has been filled with challenges and breakthroughs. Here are my specific experiences in learning and adaptation:
+
+<div class="detail-section">
+    <div class="detail-subtitle">From Average Performance to TOEFL 103</div>
+    <p>When I first entered high school, my academic performance was only average in the class. Facing such a starting point, I didn't give up but began continuous effort and breakthroughs.</p>
+    <p>To improve my English proficiency, I developed a systematic study plan:</p>
+    <ul class="detail-list">
+        <li class="detail-list-item">Utilized weekends to systematically study English grammar and vocabulary</li>
+        <li class="detail-list-item">Memorized words while waiting in the cafeteria line, making full use of fragmented time</li>
+        <li class="detail-list-item">Listened to English podcasts and news daily to develop a sense of the language</li>
+        <li class="detail-list-item">Completed a full set of TOEFL practice tests every week</li>
+    </ul>
+    <p>Through a year and a half of continuous effort, my TOEFL score improved from 75 to 103. In this process, I learned how to reflect on setbacks and persevere in moving forward. Every time I encountered difficulties, I analyzed the reasons, adjusted my methods, and continued to progress.</p>
+</div>
+
+<div class="detail-section">
+    <div class="detail-subtitle">Challenges and Breakthroughs in AP Learning</div>
+    <p>During my AP course studies, I also faced many challenges:</p>
+    <ul class="detail-list">
+        <li class="detail-list-item">Difficulty understanding complex concepts and theories in class</li>
+        <li class="detail-list-item">Forgetting learned knowledge points quickly</li>
+        <li class="detail-list-item">Struggling to connect theoretical knowledge with practical applications</li>
+        <li class="detail-list-item">Feeling overwhelmed by the large volume of reading materials</li>
+    </ul>
+    <p>To overcome these difficulties, I adopted the following strategies:</p>
+    <ul class="detail-list">
+        <li class="detail-list-item">Proactively scheduled Q&A sessions with teachers, preparing a list of questions in advance</li>
+        <li class="detail-list-item">Listed unclear points one by one and tackled them systematically</li>
+        <li class="detail-list-item">Formed study groups to discuss and help each other with classmates</li>
+        <li class="detail-list-item">Created mind maps to systematize knowledge points</li>
+    </ul>
+    <p>I always adhered to one principle: if I didn't understand, I asked until I fully grasped the concept. This persistent questioning attitude not only helped me master knowledge but also honed my critical thinking and problem-solving skills.</p>
+</div>
+
+<div class="detail-section">
+    <div class="detail-subtitle">Optimization of Learning Methods</div>
+    <p>Through this experience, I summarized a set of learning methods that work for me:</p>
+    <ul class="detail-list">
+        <li class="detail-list-item"><strong>Active Learning</strong>: No longer passively receiving knowledge but actively exploring and asking questions</li>
+        <li class="detail-list-item"><strong>Systematic Review</strong>: Regularly reviewing and organizing knowledge points to form a knowledge system</li>
+        <li class="detail-list-item"><strong>Continuous Improvement</strong>: Maintaining learning enthusiasm and constantly challenging higher goals</li>
+        <li class="detail-list-item"><strong>Time Management</strong>: Reasonably allocating time for study, rest, and activities</li>
+    </ul>
+    <p>This growth journey taught me that learning is not just about achieving good grades but also a process of continuously breaking through oneself and discovering potential. Every challenge is an opportunity for growth, and every setback is a chance for reflection.</p>
+</div>`
+                    }
+                }
+            };
+
+            // 弹窗元素
+            const bookModal = document.getElementById('bookModal');
+            const articleModal = document.getElementById('articleModal');
+            const musicModal = document.getElementById('musicModal');
+            const detailModal = document.getElementById('detailModal');
+            
+            // 关闭按钮
+            const closeModalBtn = document.getElementById('closeModal');
+            const closeArticleModalBtn = document.getElementById('closeArticleModal');
+            const closeMusicModalBtn = document.getElementById('closeMusicModal');
+            const closeDetailModalBtn = document.getElementById('closeDetailModal');
+            
+            // 容器
+            const bookListContainer = document.getElementById('bookList');
+            const articleListContainer = document.getElementById('articleList');
+            const musicGalleryContainer = document.getElementById('musicGallery');
+            const detailContentContainer = document.getElementById('detailContent');
+            
+            // 标题
+            const modalTitle = document.getElementById('modalTitle');
+            const articleModalTitle = document.getElementById('articleModalTitle');
+            const musicModalTitle = document.getElementById('musicModalTitle');
+            const detailModalTitle = document.getElementById('detailModalTitle');
+
+            // 打开书单弹窗
+            function openBookModal() {
+                const currentLang = document.body.classList.contains('english-mode') ? 'en' : 'zh';
+                renderBookList(currentLang);
+                bookModal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+
+            // 打开文章弹窗
+            function openArticleModal() {
+                const currentLang = document.body.classList.contains('english-mode') ? 'en' : 'zh';
+                renderArticleList(currentLang);
+                articleModal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+
+            // 打开音乐艺术弹窗
+            function openMusicModal() {
+                const currentLang = document.body.classList.contains('english-mode') ? 'en' : 'zh';
+                renderMusicGallery(currentLang);
+                musicModal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+
+            // 打开详细信息弹窗
+            function openDetailModal(type) {
+                const currentLang = document.body.classList.contains('english-mode') ? 'en' : 'zh';
+                renderDetailContent(type, currentLang);
+                detailModal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+
+            // 关闭弹窗
+            function closeBookModal() {
+                bookModal.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+
+            function closeArticleModal() {
+                articleModal.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+
+            function closeMusicModal() {
+                musicModal.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+
+            function closeDetailModal() {
+                detailModal.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+
+            // 渲染书单列表
+            function renderBookList(lang) {
+                const books = bookReviews[lang] || bookReviews['zh'];
+                const title = lang === 'zh' ? '我的书单' : 'My Book List';
+                
+                modalTitle.textContent = title;
+                bookListContainer.innerHTML = '';
+                
+                books.forEach(book => {
+                    const bookItem = document.createElement('div');
+                    bookItem.className = 'book-item';
+                    bookItem.innerHTML = `
+                        <div class="book-title">${book.title}</div>
+                        <div class="book-rating">${book.rating}</div>
+                        <div class="book-review-preview">${book.preview}</div>
+                        <div class="book-review-full ${book.isEnglish ? 'en' : ''}">
+                            ${book.fullReview.replace(/\n/g, '<br>')}
+                            ${book.quote ? `<div class="book-quote">"${book.quote}"</div>` : ''}
+                            <div class="book-tags">
+                                ${book.tags.map(tag => `<span class="book-tag">${tag}</span>`).join('')}
+                            </div>
+                        </div>
+                        <button class="read-more-btn" onclick="toggleFullReview(this)">
+                            <i class="fas fa-book-open"></i>
+                            ${lang === 'zh' ? '阅读完整书评' : 'Read Full Review'}
+                        </button>
+                    `;
+                    bookListContainer.appendChild(bookItem);
+                });
+            }
+
+            // 渲染文章列表
+            function renderArticleList(lang) {
+                const articlesList = articles[lang] || articles['zh'];
+                const title = lang === 'zh' ? '我的文章' : 'My Articles';
+                
+                articleModalTitle.textContent = title;
+                articleListContainer.innerHTML = '';
+                
+                articlesList.forEach(article => {
+                    const articleItem = document.createElement('div');
+                    articleItem.className = 'article-item';
+                    articleItem.innerHTML = `
+                        <div class="article-title">${article.title}</div>
+                        <div class="article-date">
+                            <i class="far fa-calendar-alt"></i> ${article.date}
+                        </div>
+                        <div class="article-summary">${article.summary}</div>
+                        <div class="article-full">
+                            <div class="article-content">
+                                ${article.content.replace(/\n/g, '<br>')}
+                            </div>
+                        </div>
+                        <button class="read-more-btn" onclick="toggleArticleContent(this)">
+                            <i class="fas fa-file-alt"></i>
+                            ${lang === 'zh' ? '阅读完整文章' : 'Read Full Article'}
+                        </button>
+                    `;
+                    articleListContainer.appendChild(articleItem);
+                });
+            }
+
+            // 渲染音乐艺术画廊
+            function renderMusicGallery(lang) {
+                const musicItems = musicArt[lang] || musicArt['zh'];
+                const title = lang === 'zh' ? '音乐与艺术' : 'Music & Art';
+                
+                musicModalTitle.textContent = title;
+                musicGalleryContainer.innerHTML = '';
+                
+                musicItems.forEach(item => {
+                    const musicItem = document.createElement('div');
+                    musicItem.className = 'music-item';
+                    musicItem.innerHTML = `
+                        <img src="${item.image}" alt="${item.title}" class="music-img">
+                        <div class="music-overlay">
+                            <h3>${item.title}</h3>
+                            <p class="music-desc">${item.description}</p>
+                        </div>
+                    `;
+                    musicGalleryContainer.appendChild(musicItem);
+                });
+            }
+
+            // 渲染详细信息内容
+            function renderDetailContent(type, lang) {
+                const detailData = detailsData[type][lang] || detailsData[type]['zh'];
+                const title = detailData.title;
+                
+                detailModalTitle.textContent = title;
+                detailContentContainer.innerHTML = '';
+                
+                const detailItem = document.createElement('div');
+                detailItem.className = 'detail-item';
+                detailItem.innerHTML = `
+                    <div class="detail-content">
+                        ${detailData.content}
+                    </div>
+                `;
+                detailContentContainer.appendChild(detailItem);
+            }
+
+            // 切换完整书评显示
+            window.toggleFullReview = function(button) {
+                const bookItem = button.closest('.book-item');
+                const fullReview = bookItem.querySelector('.book-review-full');
+                const isShowing = fullReview.classList.contains('show');
+                
+                if (isShowing) {
+                    fullReview.classList.remove('show');
+                    const currentLang = document.body.classList.contains('english-mode') ? 'en' : 'zh';
+                    button.innerHTML = `<i class="fas fa-book-open"></i>${currentLang === 'zh' ? '阅读完整书评' : 'Read Full Review'}`;
+                    bookItem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                    fullReview.classList.add('show');
+                    const currentLang = document.body.classList.contains('english-mode') ? 'en' : 'zh';
+                    button.innerHTML = `<i class="fas fa-chevron-up"></i>${currentLang === 'zh' ? '收起书评' : 'Collapse Review'}`;
+                    fullReview.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+
+            // 切换完整文章显示
+            window.toggleArticleContent = function(button) {
+                const articleItem = button.closest('.article-item');
+                const fullArticle = articleItem.querySelector('.article-full');
+                const isShowing = fullArticle.classList.contains('show');
+                
+                if (isShowing) {
+                    fullArticle.classList.remove('show');
+                    const currentLang = document.body.classList.contains('english-mode') ? 'en' : 'zh';
+                    button.innerHTML = `<i class="fas fa-file-alt"></i>${currentLang === 'zh' ? '阅读完整文章' : 'Read Full Article'}`;
+                    articleItem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                    fullArticle.classList.add('show');
+                    const currentLang = document.body.classList.contains('english-mode') ? 'en' : 'zh';
+                    button.innerHTML = `<i class="fas fa-chevron-up"></i>${currentLang === 'zh' ? '收起文章' : 'Collapse Article'}`;
+                    fullArticle.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+
+            // 点击背景关闭弹窗
+            bookModal.addEventListener('click', (e) => {
+                if (e.target === bookModal) {
+                    closeBookModal();
+                }
+            });
+
+            articleModal.addEventListener('click', (e) => {
+                if (e.target === articleModal) {
+                    closeArticleModal();
+                }
+            });
+
+            musicModal.addEventListener('click', (e) => {
+                if (e.target === musicModal) {
+                    closeMusicModal();
+                }
+            });
+
+            detailModal.addEventListener('click', (e) => {
+                if (e.target === detailModal) {
+                    closeDetailModal();
+                }
+            });
+
+            // ESC键关闭弹窗
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    if (bookModal.style.display === 'block') {
+                        closeBookModal();
+                    } else if (articleModal.style.display === 'block') {
+                        closeArticleModal();
+                    } else if (musicModal.style.display === 'block') {
+                        closeMusicModal();
+                    } else if (detailModal.style.display === 'block') {
+                        closeDetailModal();
+                    }
+                }
+            });
+
+            // 绑定按钮事件
+            document.querySelectorAll('.view-booklist-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openBookModal();
+                });
+            });
+
+            document.querySelectorAll('.view-writings-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openArticleModal();
+                });
+            });
+
+            document.querySelectorAll('.view-music-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openMusicModal();
+                });
+            });
+
+            document.querySelectorAll('.view-psychology-details').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openDetailModal('psychology');
+                });
+            });
+
+            document.querySelectorAll('.view-leadership-details').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openDetailModal('leadership');
+                });
+            });
+
+            document.querySelectorAll('.view-learning-journey').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openDetailModal('learning');
+                });
+            });
+
+            // 关闭按钮事件
+            closeModalBtn.addEventListener('click', closeBookModal);
+            closeArticleModalBtn.addEventListener('click', closeArticleModal);
+            closeMusicModalBtn.addEventListener('click', closeMusicModal);
+            closeDetailModalBtn.addEventListener('click', closeDetailModal);
+        }
+
+        // 翻译功能
+        const translations = {
+            'zh': {
+                'logo': '@Hyaa.',
+                'about': '关于我',
+                'skills': '我的技能',
+                'abilities': '技能展示',
+                'contact': '联系我',
+                'greetingName': '胡海璐',
+                'intro': '一名热爱探索和思考的高中生。从学业挑战到校园领导，从创办公众号到深入心理学研究，我在不同的经历中找到了属于自己的声音。',
+                'contact_btn': '与我联系',
+                'education': '学术成长',
+                'edu_desc': '从班级中后游到托福103分，用一年半时间不断突破自己。主动答疑、系统复习、持续精进，这段经历让我学会在挫折中反思，在坚持中前行。',
+                'leadership': '校园领导力',
+                'leadership_desc': '学生会副主席、Speech Club社长、班长。策划组织Horror Party、厨神大赛、迎新晚会等校园活动，通过组织与沟通锻炼能力，深刻理解责任与协作。',
+                'achievement': '公众号「声命力」',
+                'achievement_desc': '创建并独立运营微信公众号，通过采访不同人群分享他们的故事。单篇点击量突破5000次，致力于用真实故事激励和帮助更多的人。',
+                'reading': '📖 深度阅读与思考',
+                'writing': '✍️ 书评写作与表达',
+                'piano': '🎹 钢琴演奏',
+                'communication': '💬 深度沟通与倾听',
+                'speaking': '🎤 演讲与公开表达',
+                'planning': '🎭 活动策划与组织',
+                'reading_skill': '阅读与思考',
+                'reading_desc': '擅长深度阅读和批判性思考，能够从文学、心理学、哲学等多领域书籍中汲取智慧。每本书都是一次灵魂的对话。',
+                'writing_skill': '写作与表达',
+                'writing_desc': '拥有优秀的书评写作和文学分析能力，能够将复杂的思考和情感用文字准确表达。用文字记录成长，用故事连接人心。',
+                'music_skill': '音乐与艺术',
+                'music_desc': '多年钢琴演奏经验，能够通过音乐表达情感和创造美感。在旋律中找到平静，在音符中感悟生活。',
+                'comm_skill': '沟通与领导',
+                'comm_desc': '擅长深度对话和有效沟通，能够倾听他人并建立真诚连接。具备团队领导和活动策划能力，在协作中实现共同目标。',
+                'psychology_skill': '心理学应用',
+                'psychology_desc': '深入学习CBT认知行为疗法、阿德勒个体心理学等理论，能够将心理学知识应用于自我成长和人际沟通中。',
+                'learning_skill': '学习与适应',
+                'learning_desc': '具备快速学习能力和强大适应力，从托福备考到多领域探索，展现了持续学习和自我突破的能力。在挑战中成长，在变化中找到方向。',
+                'view_booklist': '查看书单',
+                'view_writings': '阅读作品',
+                'listen_music': '查看图片',
+                'learn_more': '了解更多',
+                'view_details': '查看详情',
+                'view_journey': '成长历程',
+                'email': '邮箱',
+                'email_addr': 'huhailu.razx@outlook.com',
+                'wechat': '微信',
+                'wechat_id': 'huuu80223',
+                'phone': '电话',
+                'phone_number': '15967460515',
+                'location': '位置',
+                'location_addr': 'China · Creative City',
+                'form_name': '姓名',
+                'form_name_placeholder': '请输入您的姓名',
+                'form_email': '邮箱',
+                'form_email_placeholder': '请输入您的邮箱',
+                'form_message': '留言',
+                'form_message_placeholder': '请留下您的信息...',
+                'send_message': '发送信息',
+                'copyright': '© 2023 胡海璐. 所有内容均为原创 | 设计：胡海璐'
+            },
+            'en': {
+                'logo': '@Hyaa.',
+                'about': 'About Me',
+                'skills': 'My Skills',
+                'abilities': 'Skill Showcase',
+                'contact': 'Contact Me',
+                'greetingName': 'Hedya Hu',
+                'intro': 'A high school student passionate about exploration and reflection. From academic challenges to campus leadership, from founding a public account to in-depth psychology research, I\'ve found my voice through diverse experiences.',
+                'contact_btn': 'Get In Touch',
+                'education': 'Academic Growth',
+                'edu_desc': 'From average performance to TOEFL 103, I constantly pushed my limits over a year and a half. Proactive Q&A, systematic review, and continuous improvement taught me reflection through setbacks and perseverance.',
+                'leadership': 'Campus Leadership',
+                'leadership_desc': 'Student Council Vice President, Speech Club President, Class Monitor. Organized Horror Party, Cooking Competition, Welcome Party and other campus events, developing skills through organization and communication.',
+                'achievement': 'WeChat Public Account',
+                'achievement_desc': 'Founded and independently operated a WeChat public account, sharing stories through interviews. Single article reached over 5000 views, dedicated to inspiring and helping people with authentic stories.',
+                'reading': '📖 Deep Reading & Thinking',
+                'writing': '✍️ Book Review & Writing',
+                'piano': '🎹 Piano Performance',
+                'communication': '💬 Deep Communication & Listening',
+                'speaking': '🎤 Public Speaking & Expression',
+                'planning': '🎭 Event Planning & Organization',
+                'reading_skill': 'Reading & Thinking',
+                'reading_desc': 'Skilled in deep reading and critical thinking, able to gain wisdom from literature, psychology, philosophy and other fields. Every book is a dialogue with the soul.',
+                'writing_skill': 'Writing & Expression',
+                'writing_desc': 'Excellent book review writing and literary analysis skills, able to accurately express complex thoughts and emotions through words. Recording growth and connecting hearts through stories.',
+                'music_skill': 'Music & Art',
+                'music_desc': 'Years of piano performance experience, able to express emotions and create beauty through music. Finding peace in melodies, understanding life through notes.',
+                'comm_skill': 'Communication & Leadership',
+                'comm_desc': 'Skilled in deep conversation and effective communication, able to listen to others and build genuine connections. Possess team leadership and event planning abilities.',
+                'psychology_skill': 'Psychology Application',
+                'psychology_desc': 'Deep study of CBT cognitive behavioral therapy and Adlerian psychology, able to apply psychological knowledge to personal growth and interpersonal communication.',
+                'learning_skill': 'Learning & Adaptation',
+                'learning_desc': 'Possess fast learning ability and strong adaptability, demonstrating continuous learning and self-breakthrough from TOEFL preparation to multi-field exploration.',
+                'view_booklist': 'View Booklist',
+                'view_writings': 'Read Works',
+                'listen_music': 'View Images',
+                'learn_more': 'Learn More',
+                'view_details': 'View Details',
+                'view_journey': 'Growth Journey',
+                'email': 'Email',
+                'email_addr': 'huhailu.razx@outlook.com',
+                'wechat': 'WeChat',
+                'wechat_id': 'huuu80223',
+                'phone': 'Phone',
+                'phone_number': '15967460515',
+                'location': 'Location',
+                'location_addr': 'China · Creative City',
+                'form_name': 'Name',
+                'form_name_placeholder': 'Please enter your name',
+                'form_email': 'Email',
+                'form_email_placeholder': 'Please enter your email',
+                'form_message': 'Message',
+                'form_message_placeholder': 'Please leave your message...',
+                'send_message': 'Send Message',
+                'copyright': '© 2023 Hedya Hu. All content is original | Design: Hedya Hu'
+            }
+        };
+
+        let currentLang = 'zh';
+        const langToggle = document.getElementById('langToggle');
+
+        langToggle.addEventListener('click', () => {
+            const newLang = currentLang === 'zh' ? 'en' : 'zh';
+            animateLanguageSwitch(newLang);
+            localStorage.setItem('language', newLang);
+        });
+
+        function animateLanguageSwitch(newLang) {
+            const mainContent = document.body;
+            const pendingTimeout = mainContent.dataset.languageTimeout;
+            if (pendingTimeout) clearTimeout(pendingTimeout);
+            
+            mainContent.classList.add('language-transition');
+            
+            requestAnimationFrame(() => {
+                currentLang = newLang;
+                updateLanguage(newLang);
+                
+                requestAnimationFrame(() => {
+                    mainContent.classList.remove('language-transition');
+                });
+            });
+        }
+
+        function updateLanguage(lang) {
+            const trans = translations[lang];
+            
+            // 更新导航栏和页脚
+            document.querySelectorAll('.logo').forEach(el => {
+                el.textContent = trans['logo'];
+            });
+
+            // 更新导航链接
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks[0].textContent = trans['about'];
+            navLinks[1].textContent = trans['skills'];
+            navLinks[2].textContent = trans['abilities'];
+            navLinks[3].textContent = trans['contact'];
+
+            // 更新语言按钮
+            langToggle.textContent = lang === 'zh' ? 'English' : '中文';
+
+            // 更新头部区域
+            const h1 = document.querySelector('header h1');
+            h1.textContent = trans['greetingName'];
+            document.querySelector('header p').textContent = trans['intro'];
+            document.querySelector('header .btn').textContent = trans['contact_btn'];
+
+            // 更新关于我部分的卡片
+            const aboutCards = document.querySelectorAll('#about .card');
+            const aboutTitles = ['education', 'leadership', 'achievement'];
+            const aboutDescs = ['edu_desc', 'leadership_desc', 'achievement_desc'];
+            aboutCards.forEach((card, i) => {
+                card.querySelector('h3').textContent = trans[aboutTitles[i]];
+                card.querySelector('p').innerHTML = trans[aboutDescs[i]];
+            });
+
+            // 更新技能部分
+            const skillItems = document.querySelectorAll('.skill-name');
+            const skillNames = ['reading', 'writing', 'piano', 'communication', 'speaking', 'planning'];
+            skillItems.forEach((item, i) => {
+                const emoji = item.textContent.substring(0, item.textContent.indexOf(' '));
+                item.textContent = trans[skillNames[i]];
+            });
+
+            // 更新技能展示部分的卡片
+            const abilityCards = document.querySelectorAll('#abilities .card');
+            const abilityTitles = ['reading_skill', 'writing_skill', 'music_skill', 'comm_skill', 'psychology_skill', 'learning_skill'];
+            const abilityDescs = ['reading_desc', 'writing_desc', 'music_desc', 'comm_desc', 'psychology_desc', 'learning_desc'];
+            const abilityBtns = ['view_booklist', 'view_writings', 'listen_music', 'learn_more', 'view_details', 'view_journey'];
+            
+            abilityCards.forEach((card, i) => {
+                card.querySelector('h3').textContent = trans[abilityTitles[i]];
+                card.querySelector('p').textContent = trans[abilityDescs[i]];
+                card.querySelector('.btn').textContent = trans[abilityBtns[i]];
+            });
+
+            // 更新联系我部分
+            const contactItems = document.querySelectorAll('.contact-item');
+            const contactLabels = ['email', 'wechat', 'phone'];
+            const contactValues = ['email_addr', 'wechat_id', 'phone_number'];
+            contactItems.forEach((item, i) => {
+                item.querySelector('h3').textContent = trans[contactLabels[i]];
+                item.querySelector('p').textContent = trans[contactValues[i]];
+            });
+
+            // 更新表单
+            document.querySelector('label[for="name"]').textContent = trans['form_name'];
+            document.getElementById('name').placeholder = trans['form_name_placeholder'];
+            document.querySelector('label[for="email"]').textContent = trans['form_email'];
+            document.getElementById('email').placeholder = trans['form_email_placeholder'];
+            document.querySelector('label[for="message"]').textContent = trans['form_message'];
+            document.getElementById('message').placeholder = trans['form_message_placeholder'];
+            document.querySelector('#contactForm .btn').textContent = trans['send_message'];
+
+            // 更新页脚版权
+            document.querySelector('.copyright p').textContent = trans['copyright'];
+        }
+
+        // 初始化语言
+        const savedLang = localStorage.getItem('language') || 'zh';
+        if (savedLang === 'en') {
+            currentLang = 'en';
+            updateLanguage('en');
+            langToggle.textContent = '中文';
+        }
+    </script>
+</body>
+</html>
